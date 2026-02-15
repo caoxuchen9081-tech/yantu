@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOLTROLL 管理后台</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">VOLTROLL</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#dashboard" class="nav-item active" data-section="dashboard">
+                    <span class="nav-icon">📊</span>
+                    <span>仪表盘</span>
+                </a>
+                <a href="#hero" class="nav-item" data-section="hero">
+                    <span class="nav-icon">🏠</span>
+                    <span>首页设置</span>
+                </a>
+                <a href="#models" class="nav-item" data-section="models">
+                    <span class="nav-icon">🚗</span>
+                    <span>产品展示</span>
+                </a>
+                <a href="#features" class="nav-item" data-section="features">
+                    <span class="nav-icon">✨</span>
+                    <span>核心特性</span>
+                </a>
+                <a href="#specs" class="nav-item" data-section="specs">
+                    <span class="nav-icon">📋</span>
+                    <span>技术规格</span>
+                </a>
+                <a href="#order" class="nav-item" data-section="order">
+                    <span class="nav-icon">💰</span>
+                    <span>订购方案</span>
+                </a>
+                <a href="#images" class="nav-item" data-section="images">
+                    <span class="nav-icon">🖼️</span>
+                    <span>图片管理</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="index.html" class="nav-item" target="_blank">
+                    <span class="nav-icon">👁️</span>
+                    <span>预览网站</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="admin-header">
+                <h1 id="page-title">仪表盘</h1>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" id="save-btn">
+                        <span>💾</span> 保存更改
+                    </button>
+                    <button class="btn btn-primary" id="preview-btn">
+                        <span>👁️</span> 预览
+                    </button>
+                </div>
+            </header>
+
+            <!-- Content Sections -->
+            <div class="content-area">
+                <!-- Dashboard -->
+                <section class="section active" id="dashboard">
+                    <div class="dashboard-grid">
+                        <div class="dashboard-card">
+                            <h3>网站状态</h3>
+                            <div class="status-indicator online">
+                                <span class="dot"></span>
+                                <span>正常运行</span>
+                            </div>
+                        </div>
+                        <div class="dashboard-card">
+                            <h3>最后更新</h3>
+                            <p id="last-updated">-</p>
+                        </div>
+                        <div class="dashboard-card">
+                            <h3>版本</h3>
+                            <p id="version">-</p>
+                        </div>
+                        <div class="dashboard-card">
+                            <h3>快速操作</h3>
+                            <div class="quick-actions">
+                                <button class="btn btn-outline btn-sm" onclick="navTo('hero')">编辑首页</button>
+                                <button class="btn btn-outline btn-sm" onclick="navTo('images')">管理图片</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>使用说明</h3>
+                        <ol class="instructions">
+                            <li>从左侧菜单选择要编辑的模块</li>
+                            <li>修改表单中的内容</li>
+                            <li>点击"保存更改"保存到配置文件</li>
+                            <li>点击"预览"查看效果</li>
+                        </ol>
+                    </div>
+                </section>
+
+                <!-- Hero Section -->
+                <section class="section" id="hero">
+                    <h2>首页首屏设置</h2>
+                    <form id="hero-form" class="admin-form">
+                        <div class="form-group">
+                            <label>主标题</label>
+                            <input type="text" name="hero-title" placeholder="VOLTROLL Model S">
+                        </div>
+                        <div class="form-group">
+                            <label>副标题</label>
+                            <input type="text" name="hero-subtitle" placeholder="重新定义城市出行">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>续航里程</label>
+                                <input type="text" name="hero-range" placeholder="120">
+                            </div>
+                            <div class="form-group">
+                                <label>续航单位</label>
+                                <input type="text" name="hero-range-unit" placeholder="公里续航">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>最高时速</label>
+                                <input type="text" name="hero-speed" placeholder="45">
+                            </div>
+                            <div class="form-group">
+                                <label>时速单位</label>
+                                <input type="text" name="hero-speed-unit" placeholder="最高时速">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>充电时间</label>
+                                <input type="text" name="hero-charge" placeholder="3">
+                            </div>
+                            <div class="form-group">
+                                <label>充电单位</label>
+                                <input type="text" name="hero-charge-unit" placeholder="小时充电">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>首屏图片</label>
+                            <input type="file" name="hero-image" accept="image/*">
+                            <div class="image-preview" id="hero-preview"></div>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Models Section -->
+                <section class="section" id="models">
+                    <h2>产品展示设置</h2>
+                    <div class="models-editor">
+                        <!-- Model S -->
+                        <div class="model-card">
+                            <h3>Model S</h3>
+                            <form class="admin-form">
+                                <div class="form-group">
+                                    <label>产品标题</label>
+                                    <input type="text" name="model-s-title" placeholder="Model S">
+                                </div>
+                                <div class="form-group">
+                                    <label>产品描述</label>
+                                    <textarea name="model-s-desc" rows="3" placeholder="城市通勤的最佳选择..."></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>产品图片</label>
+                                    <input type="file" name="model-s-image" accept="image/*">
+                                    <div class="image-preview" id="model-s-preview"></div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Model 3 -->
+                        <div class="model-card">
+                            <h3>Model 3</h3>
+                            <form class="admin-form">
+                                <div class="form-group">
+                                    <label>产品标题</label>
+                                    <input type="text" name="model-3-title" placeholder="Model 3">
+                                </div>
+                                <div class="form-group">
+                                    <label>产品描述</label>
+                                    <textarea name="model-3-desc" rows="3" placeholder="载货能力强，商业用途首选..."></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>产品图片</label>
+                                    <input type="file" name="model-3-image" accept="image/*">
+                                    <div class="image-preview" id="model-3-preview"></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Features Section -->
+                <section class="section" id="features">
+                    <h2>核心特性设置</h2>
+                    <div class="features-editor">
+                        <div class="feature-item" data-index="0">
+                            <div class="feature-header">
+                                <span class="feature-number">1</span>
+                                <h3>特性一</h3>
+                            </div>
+                            <form class="admin-form">
+                                <div class="form-group">
+                                    <label>图标</label>
+                                    <input type="text" name="feature-1-icon" placeholder="🔋">
+                                </div>
+                                <div class="form-group">
+                                    <label>标题</label>
+                                    <input type="text" name="feature-1-title" placeholder="超长续航">
+                                </div>
+                                <div class="form-group">
+                                    <label>描述</label>
+                                    <textarea name="feature-1-desc" rows="2" placeholder="一次充电，120公里..."></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="feature-item" data-index="1">
+                            <div class="feature-header">
+                                <span class="feature-number">2</span>
+                                <h3>特性二</h3>
+                            </div>
+                            <form class="admin-form">
+                                <div class="form-group">
+                                    <label>图标</label>
+                                    <input type="text" name="feature-2-icon" placeholder="⚡">
+                                </div>
+                                <div class="form-group">
+                                    <label>标题</label>
+                                    <input type="text" name="feature-2-title" placeholder="快速充电">
+                                </div>
+                                <div class="form-group">
+                                    <label>描述</label>
+                                    <textarea name="feature-2-desc" rows="2" placeholder="3小时满电出发..."></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="feature-item" data-index="2">
+                            <div class="feature-header">
+                                <span class="feature-number">3</span>
+                                <h3>特性三</h3>
+                            </div>
+                            <form class="admin-form">
+                                <div class="form-group">
+                                    <label>图标</label>
+                                    <input type="text" name="feature-3-icon" placeholder="🛡️">
+                                </div>
+                                <div class="form-group">
+                                    <label>标题</label>
+                                    <input type="text" name="feature-3-title" placeholder="安全防护">
+                                </div>
+                                <div class="form-group">
+                                    <label>描述</label>
+                                    <textarea name="feature-3-desc" rows="2" placeholder="多重安全保护系统..."></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="feature-item" data-index="3">
+                            <div class="feature-header">
+                                <span class="feature-number">4</span>
+                                <h3>特性四</h3>
+                            </div>
+                            <form class="admin-form">
+                                <div class="form-group">
+                                    <label>图标</label>
+                                    <input type="text" name="feature-4-icon" placeholder="🌿">
+                                </div>
+                                <div class="form-group">
+                                    <label>标题</label>
+                                    <input type="text" name="feature-4-title" placeholder="绿色环保">
+                                </div>
+                                <div class="form-group">
+                                    <label>描述</label>
+                                    <textarea name="feature-4-desc" rows="2" placeholder="零排放，零污染..."></textarea>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Specs Section -->
+                <section class="section" id="specs">
+                    <h2>技术规格设置</h2>
+                    <form id="specs-form" class="admin-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>电机功率</label>
+                                <input type="text" name="spec-motor" placeholder="1200W">
+                            </div>
+                            <div class="form-group">
+                                <label>电池容量</label>
+                                <input type="text" name="spec-battery" placeholder="72V 45Ah">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>续航里程</label>
+                                <input type="text" name="spec-range" placeholder="120km">
+                            </div>
+                            <div class="form-group">
+                                <label>最高时速</label>
+                                <input type="text" name="spec-speed" placeholder="45km/h">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>车身尺寸</label>
+                                <input type="text" name="spec-size" placeholder="2400×1100×1750mm">
+                            </div>
+                            <div class="form-group">
+                                <label>整备重量</label>
+                                <input type="text" name="spec-weight" placeholder="280kg">
+                            </div>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Order Section -->
+                <section class="section" id="order">
+                    <h2>订购方案设置</h2>
+                    <div class="order-editor">
+                        <!-- Basic Plan -->
+                        <div class="order-item">
+                            <h3>基础版</h3>
+                            <form class="admin-form">
+                                <div class="form-group">
+                                    <label>方案名称</label>
+                                    <input type="text" name="order-basic-name" placeholder="基础版">
+                                </div>
+                                <div class="form-group">
+                                    <label>价格</label>
+                                    <input type="text" name="order-basic-price" placeholder="¥6,999">
+                                </div>
+                                <div class="form-group">
+                                    <label>特性列表（每行一个）</label>
+                                    <textarea name="order-basic-features" rows="4" placeholder="标准续航 80km&#10;基础配色&#10;1年质保"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Pro Plan -->
+                        <div class="order-item featured">
+                            <span class="popular-badge">推荐</span>
+                            <h3>专业版</h3>
+                            <form class="admin-form">
+                                <div class="form-group">
+                                    <label>方案名称</label>
+                                    <input type="text" name="order-pro-name" placeholder="专业版">
+                                </div>
+                                <div class="form-group">
+                                    <label>价格</label>
+                                    <input type="text" name="order-pro-price" placeholder="¥8,999">
+                                </div>
+                                <div class="form-group">
+                                    <label>特性列表（每行一个）</label>
+                                    <textarea name="order-pro-features" rows="5" placeholder="超长续航 120km&#10;全系配色&#10;2年质保&#10;免费安装"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Ultra Plan -->
+                        <div class="order-item">
+                            <h3>旗舰版</h3>
+                            <form class="admin-form">
+                                <div class="form-group">
+                                    <label>方案名称</label>
+                                    <input type="text" name="order-ultra-name" placeholder="旗舰版">
+                                </div>
+                                <div class="form-group">
+                                    <label>价格</label>
+                                    <input type="text" name="order-ultra-price" placeholder="¥12,999">
+                                </div>
+                                <div class="form-group">
+                                    <label>特性列表（每行一个）</label>
+                                    <textarea name="order-ultra-features" rows="5" placeholder="续航 150km&#10;定制配色&#10;3年质保&#10;上门服务"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Images Section -->
+                <section class="section" id="images">
+                    <h2>图片管理</h2>
+                    <div class="images-manager">
+                        <div class="image-upload-item">
+                            <h4>首页首屏图片</h4>
+                            <input type="file" name="upload-hero" accept="image/*">
+                            <div class="image-preview" id="upload-hero-preview"></div>
+                            <input type="text" class="image-path" placeholder="图片路径 (images/xxx.jpg)" id="path-hero">
+                        </div>
+                        <div class="image-upload-item">
+                            <h4>Model S 产品图</h4>
+                            <input type="file" name="upload-model-s" accept="image/*">
+                            <div class="image-preview" id="upload-model-s-preview"></div>
+                            <input type="text" class="image-path" placeholder="图片路径" id="path-model-s">
+                        </div>
+                        <div class="image-upload-item">
+                            <h4>Model 3 产品图</h4>
+                            <input type="file" name="upload-model-3" accept="image/*">
+                            <div class="image-preview" id="upload-model-3-preview"></div>
+                            <input type="text" class="image-path" placeholder="图片路径" id="path-model-3">
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span class="toast-message"></span>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>
