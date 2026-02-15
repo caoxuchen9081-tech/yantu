@@ -1,0 +1,91 @@
+{
+  "site": {
+    "name": "VOLTROLL",
+    "tagline": "电动三轮车 | 未来出行"
+  },
+  "hero": {
+    "title": "VOLTROLL Model S",
+    "subtitle": "重新定义城市出行",
+    "range": "120",
+    "rangeUnit": "公里续航",
+    "speed": "45",
+    "speedUnit": "最高时速",
+    "charge": "3",
+    "chargeUnit": "小时充电",
+    "cta": "立即订购",
+    "image": ""
+  },
+  "models": [
+    {
+      "id": "model-s",
+      "title": "Model S",
+      "description": "城市通勤的最佳选择，时尚与环保兼得",
+      "image": "",
+      "link": "#model-s"
+    },
+    {
+      "id": "model-3",
+      "title": "Model 3",
+      "description": "载货能力强，商业用途首选",
+      "image": "",
+      "link": "#model-3"
+    }
+  ],
+  "features": [
+    {
+      "icon": "🔋",
+      "title": "超长续航",
+      "description": "一次充电，120公里无忧出行"
+    },
+    {
+      "icon": "⚡",
+      "title": "快速充电",
+      "description": "3小时满电出发"
+    },
+    {
+      "icon": "🛡️",
+      "title": "安全防护",
+      "description": "多重安全保护系统"
+    },
+    {
+      "icon": "🌿",
+      "title": "绿色环保",
+      "description": "零排放，零污染"
+    }
+  ],
+  "specs": {
+    "motor": "1200W",
+    "battery": "72V 45Ah",
+    "range": "120km",
+    "speed": "45km/h",
+    "size": "2400×1100×1750mm",
+    "weight": "280kg"
+  },
+  "order": {
+    "basic": {
+      "name": "基础版",
+      "price": "¥6,999",
+      "features": ["标准续航 80km", "基础配色", "1年质保"]
+    },
+    "pro": {
+      "name": "专业版",
+      "price": "¥8,999",
+      "features": ["超长续航 120km", "全系配色", "2年质保", "免费安装"]
+    },
+    "ultra": {
+      "name": "旗舰版",
+      "price": "¥12,999",
+      "features": ["续航 150km", "定制配色", "3年质保", "上门服务"]
+    }
+  },
+  "titles": {
+    "features": "核心特性",
+    "specs": "技术规格",
+    "order": "立即订购"
+  },
+  "footer": {
+    "copyright": "© 2025 VOLTROLL. All rights reserved."
+  },
+  "version": "1.0.0",
+  "lastUpdated": "2025-01-15"
+}
